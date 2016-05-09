@@ -1,8 +1,24 @@
-<form action="/users">
-<label for="Sign Up">Please click here to sign up and start commenting</label>
-<input type="submit" value='Sign up'>
-</form>
-<form action="/users">
-<label for="Log in">Or click here to sign in and join again the community</label>
-<input type="submit" value='Sign in'>
-</form>
+<h1>Welcome to Chitter!</h1>
+  <br>
+<% if current_user %>
+  <form action="/peeps" method="post">
+    <label for="New Peep">Contribute to the community</label>
+    <br>
+    <label for="Title">Title</label>
+    <input type="text" name="title">
+    <label for="Content">content</label>
+    <input type="text" name="content">
+    <input type="submit" value="New Peep">
+  </form>
+<% end %>
+  <br>
+<% if !current_user %>
+  <form action="/users">
+    <label for="Sign Up">Please click here to and start commenting</label>
+    <input type="submit" value='Sign up'>
+  </form>
+  <form action="/log_in">
+    <label for="Log in">Click here to sign in and join again the community</label>
+    <input type="submit" value='Sign in'>
+  </form>
+<% end %>

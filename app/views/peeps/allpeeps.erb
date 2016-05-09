@@ -1,0 +1,20 @@
+  <h2>Latest Peeps:</h2>
+<ul>
+  <% Peep.reverse_each do |peep| %>
+  <li>
+    Title: <%= peep.title %>
+    Author: <%= peep.user.username %>
+    Content: <%= peep.content %>
+    Created at: <%= peep.time %>
+  </li>
+  <% end %>
+</ul>
+<form action="/peeps" method="post">
+  <label for="New Peep">Contribute to the community</label>
+  <br>
+  <label for="Title">Title</label>
+  <input type="text" name="title">
+  <label for="Content">content</label>
+  <input type="text" name="content">
+  <input type="submit" value="New Peep">
+</form>

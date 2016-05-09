@@ -5,4 +5,6 @@ class Peep
   property :title,      String
   property :content,    String
   property :time,       String
+
+  belongs_to :user
 end
